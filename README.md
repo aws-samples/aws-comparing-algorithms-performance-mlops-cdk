@@ -140,7 +140,7 @@ After waiting for the complete execution of step functions work flow, we can see
 
 ![step functions results graph](./images/stepfunctions-graph-results.png)<br/><br/>
 
-To make sure that you are using the best version of the models, you would need to run a [hyperparameters tuning jobs](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-mkt-algo-tune.html) which will run many training jobs on your dataset using the algorithms and ranges of hyperparameters that you specify. This will help you allocate which set of hyperparameters is giving the best results<br/><br/>
+To make sure that you are configuring a set of hyperparameters that gives the minimum loss and provide better version of the models, you would need to run a [hyperparameters tuning jobs](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-mkt-algo-tune.html) which will run many training jobs on your dataset using the algorithms and ranges of hyperparameters that you specify. This will help you allocate which set of hyperparameters is giving the best results<br/><br/>
 
 ---
 ## What is next?
