@@ -10,4 +10,7 @@ cdk.out
 # Parcel build directories
 .cache
 .build
-.git*
+
+#git related files
+.gitignore
+.gitallowed
