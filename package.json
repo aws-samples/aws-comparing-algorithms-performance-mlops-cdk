@@ -1,6 +1,7 @@
 {
   "name": "aws-comparing-algorithms-performance-mlops-cdk",
   "version": "0.1.0",
+  "license" : "SEE LICENSE IN LICENSE FILE" ,
   "bin": {
     "blog-resources": "bin/blog-resources.js"
   },
