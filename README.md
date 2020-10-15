@@ -117,8 +117,8 @@ The solution uses a completely serverless environment so you don’t have to wor
     > C: Create endpoints configurations and deploy predictions endpoints for both models.<br/>
     > D: Invoke lambda function to perform 3 live predictions using boto3 and the “test” sample taken from the dataset to calculate the average accuracy of each model.<br/>
     > E: Invoke lambda function to delete deployed endpoints not to incur any additional charges.<br/>
-    > F: Invoke Lambda function to determine which model is having better accuracy in predicting the values.<br/>
-<br/><br/>
+    > F: Invoke Lambda function to determine which model is having better accuracy in predicting the values.
+<br/>
 
 The overall flow of step functions execution can be viewed by referring to the to the step functions definition graph below.<br/>
 ![step functions definition exported graph](./images/stepfunctions-graph.jpg)<br/><br/>
