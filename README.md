@@ -83,7 +83,7 @@ python scripts/download_and_divide.py
 
 1. Now that we have the infrastructure setup and datasets ready, let's start the execution and explore what the solution is performing.
 
-We start by uploading the the first half of the data set named "dataset1.csv" to the bucket named "abalone-blog-< ACCOUNT_ID >-< REGION >" to <span style="color:red">*/<em>Inputs</em>*</span> folder.
+We start by uploading the the first half of the data set named "dataset1.csv" to the bucket named "abalone-blog-< ACCOUNT_ID >-< REGION >" to */Inputs*{: .red} folder.
 
 ![Inputs Folder](./images/upload-dataset-Inputs-folder.jpg)
 
