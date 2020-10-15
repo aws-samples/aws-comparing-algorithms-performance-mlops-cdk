@@ -8,6 +8,7 @@ This is a project built using AWS Cloud Development Kit (AWS CDK). It shows how 
 - Amazon Sagemaker
 
 ## Table of contents:
+- [Prerequisites](#Prerequisites)
 - [Setup](#Setup)
 - [Fetching and exploring the dataset](#Fetching-and-exploring-the-dataset)
 - [Starting the execution](#Starting-the-execution)
@@ -16,11 +17,15 @@ This is a project built using AWS Cloud Development Kit (AWS CDK). It shows how 
 - [What is next?](#What-is-next)
 - [Cleanup](#Cleanup)
 
+## Prerequisites
+To be able to provision the solution you would need the following:
+
+1.	[Install git](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/set-up-git)
+2.	[Install CDK](https://docs.aws.amazon.com/cdk/latest/guide/getting_started.html#getting_started_prerequisites)
+
 
 ---
 ## Setup
-
-In order to have the environment setup in your AWS account, you need first to fulfil all prerequisites required for cdk installation following this [link](https://docs.aws.amazon.com/cdk/latest/guide/getting_started.html#getting_started_prerequisites).
 
 You can confirm that the cdk is working fine using the below command
 
