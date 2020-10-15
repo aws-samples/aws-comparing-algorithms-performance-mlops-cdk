@@ -112,12 +112,12 @@ The solution uses a completely serverless environment so you don’t have to wor
 ![train validation test](./images/train-validation-test.jpg)<br/><br/>
 
 5. The workflow of Step Functions will perform the following steps in parallel
-    > a.Train both algorithms.<br/>
-    > b.Create models out of trained algorithms.<br/>
-    > c.	Create endpoints configurations and deploy predictions endpoints for both models.<br/>
-    > d.	Invoke lambda function to perform 3 live predictions using boto3 and the “test” sample taken from the dataset to calculate the average accuracy of each model.<br/>
-    > e.	Invoke lambda function to delete deployed endpoints not to incur any additional charges.<br/>
-    > f.	Invoke Lambda function to determine which model is having better accuracy in predicting the values.<br/>
+    > A: Train both algorithms.<br/>
+    > B: Create models out of trained algorithms.<br/>
+    > C: Create endpoints configurations and deploy predictions endpoints for both models.<br/>
+    > D: Invoke lambda function to perform 3 live predictions using boto3 and the “test” sample taken from the dataset to calculate the average accuracy of each model.<br/>
+    > E: Invoke lambda function to delete deployed endpoints not to incur any additional charges.<br/>
+    > F: Invoke Lambda function to determine which model is having better accuracy in predicting the values.<br/>
 <br/><br/>
 
 The overall flow of step functions execution can be viewed by refering to the to the step functions defintion graph below.<br/>
@@ -129,7 +129,7 @@ P.S: Note that training, deployment of endpoints and performing live predictions
 
 ![Stepfunctions console](./images/stepfunctions.png)<br/><br/>
 
-![Stepfunctions Workflow console](./images/stepfunctions-execution.jpg)<br/><br/>
+![Stepfunctions Workflow console](./images/stepfunctions-execution.png)<br/><br/>
 
 ![Stepfunctions Workflow execution](./images/step-functions-executions.jpg)<br/><br/>
 
