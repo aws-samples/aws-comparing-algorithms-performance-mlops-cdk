@@ -38,7 +38,7 @@ git clone https://github.com/aws-samples/aws-comparing-algorithms-performance-ml
 git clone git@github.com:aws-samples/aws-comparing-algorithms-performance-mlops-cdk.git
 
 ## installation and deploy
-cd abalone-blog-repo
+cd aws-comparing-algorithms-performance-mlops-cdk/
 npm install
 cdk bootstrap
 cdk deploy
