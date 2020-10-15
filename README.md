@@ -47,7 +47,7 @@ cdk deploy
 
 After the solutions has been deployed to your account successfully, this can be confirmed from the output of the cdk deploy command returning the CloudFormation stack arn as below.
 
-<br/><br/>![successful deployment](./images/successful-deployment.png)<br/><br/>
+<br/><br/>![successful deployment](./images/successful-deployment.jpg)<br/><br/>
 
 ---
 ## Fetching and exploring the dataset
