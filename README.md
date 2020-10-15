@@ -20,7 +20,7 @@ This is a project built using AWS Cloud Development Kit (AWS CDK). It shows how 
 ---
 ## Setup
 
-In order to have the environment setup in your AWS account, you need first to fulfil all prerequisites required for cdk installtion following this [link](https://docs.aws.amazon.com/cdk/latest/guide/getting_started.html#getting_started_prerequisites).
+In order to have the environment setup in your AWS account, you need first to fulfil all prerequisites required for cdk installation following this [link](https://docs.aws.amazon.com/cdk/latest/guide/getting_started.html#getting_started_prerequisites).
 
 You can confirm that the cdk is working fine using the below command
 
@@ -54,7 +54,7 @@ After the solutions has been deployed to your account successfully, this can be 
 
 We use the [Abalone data](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression.html) originally from the [UCI data repository](https://archive.ics.uci.edu/ml/datasets/abalone).
 
-The dataset contains 9 fields ('Rings','Sex','Length','Diameter','Height','Whole Weight','Shucked Weight','Viscera Weight' and 'Shell Weight') starting with the Rings number which is a number indicating the age of the abalone (as age equals to number of rings plus 1.5). Usually the number of rings are counted through microscopes to estimate the abalone's age. So we will use our algorithms to predict the abalone age based on the other features which are mentioned respectively as below within the dataset. A snippet dataframe is explained below showing each feature of the abalone dataset and it's corresponding datatype.<br/><br/>
+The dataset contains 9 fields ('Rings','Sex','Length','Diameter','Height','Whole Weight','Shucked Weight','Viscera Weight' and 'Shell Weight') starting with the Rings number which is a number indicating the age of the abalone (as age equals to number of rings plus 1.5). Usually the number of rings are counted through microscopes to estimate the abalone's age. So we will use our algorithms to predict the abalone age based on the other features which are mentioned respectively as below within the dataset. A snippet of a data frame is explained below showing each feature of the abalone dataset and it's corresponding datatype.<br/><br/>
 
 ```
 ** data frame snippet**:
@@ -69,9 +69,9 @@ Viscera.weight    <feature_number>: float  0.111 0.0222 0.4123 0.2133 0.0345 ...
 Shell.weight      <feature_number>: float  0.31 0.08 0.21 0.155 0.044 0.11 ...
 ```
 
-The above features starting from sex to Shell.weight are physical measurements that can be measured using the correct tools, so we improve the complixety of having to examine the abalone under microscopes to understand it's age.<br/><br/>
+The above features starting from sex to Shell.weight are physical measurements that can be measured using the correct tools, so we improve the complexity of having to examine the abalone under microscopes to understand it's age.<br/><br/>
 
-In order to download the dataset we need to run the below python script which can be found in the "scripts" folder named "download_and_divide.py" which will download the original dataset and divide it into two datasets named "dataset1.csv" and "dataset2.csv". We will be using those two datasets to show how the solution can continously include more data and use the added data for the training of the models.<br/><br/>
+In order to download the dataset we need to run the below python script which can be found in the "scripts" folder named "download_and_divide.py" which will download the original dataset and divide it into two datasets named "dataset1.csv" and "dataset2.csv". We will be using those two datasets to show how the solution can continuously include more data and use the added data for the training of the models.<br/><br/>
 
 ```
 python scripts/download_and_divide.py
@@ -81,18 +81,18 @@ python scripts/download_and_divide.py
 ---
 ## Starting the execution
 
-1. Now that we have the infrastructure setup and datsets ready, let's start the execution and explore what the solution is performing.
+1. Now that we have the infrastructure setup and datasets ready, let's start the execution and explore what the solution is performing.
 
 We start by uploading the the first half of the data set named "dataset1.csv" to the bucket named "abalone-blog-< ACCOUNT_ID >-< REGION >" to <span style="color:red">*/Inputs*</span> folder.
 
-![Inputs Folder](./images/upload-dataset-Inputs-folder.jpg)<br/><br/>
+![Inputs Folder](./images/upload-dataset-Inputs-folder.jpg)
 
 ![Upload dataset1.csv](./images/upload-dataset1.jpg)<br/><br/>
 
 ---
 ## Architectural Overview
 
-This architecture serves as an example of how you can build a MLOps pipeline that orchisterates the comparison of results between two algorithms predictions.<br/>
+This architecture serves as an example of how you can build a MLOps pipeline that orchestrates the comparison of results between two algorithms predictions.<br/>
 
 The solution uses a completely serverless environment so you don’t have to worry about managing the infrastructure. It also makes sure that the deployed endpoints which will be used for predictions are deleted immediately after collecting the predictions results not to incur any additional costs.<br/><br/>
 
@@ -120,12 +120,12 @@ The solution uses a completely serverless environment so you don’t have to wor
     > F: Invoke Lambda function to determine which model is having better accuracy in predicting the values.<br/>
 <br/><br/>
 
-The overall flow of step functions execution can be viewed by refering to the to the step functions defintion graph below.<br/>
-![step functions defintion exported graph](./images/stepfunctions-graph.jpg)<br/><br/>
+The overall flow of step functions execution can be viewed by referring to the to the step functions definition graph below.<br/>
+![step functions definition exported graph](./images/stepfunctions-graph.jpg)<br/><br/>
 
 P.S: Note that training, deployment of endpoints and performing live predictions. These steps are executed in parallel. Also once the prediction is performed, all deployed endpoints will be automatically deleted in order not to incur any additional charges.<br/><br/>
 
-6. You can now watch the step functions workflow progress by going to Step Functions [console](https://console.aws.amazon.com/states/home) and locate the state machine named  abaloneStepFunction<span style="color:red">*random-string*</span><br/><br/>
+6. You can now watch the step functions workflow progress by going to Step Functions [console](https://console.aws.amazon.com/states/home) and locate the state machine named  abaloneStepFunction<span style="color:red">*<random-string>*</span><br/><br/>
 
 ![Stepfunctions console](./images/stepfunctions.jpg)<br/><br/>
 
@@ -136,7 +136,7 @@ P.S: Note that training, deployment of endpoints and performing live predictions
 ---
 ## Results
 
-After waiting for the complete execution of step functions work flow, we can see the results as below, this doesn't mean that this algorithm is better than the other in <strong>all circumstances.</strong> It just means that based on the hyperparameters configured for each algorithm and number of epochs performed, they resulted in that performance. 
+After waiting for the complete execution of step functions work flow, we can see the results as below, this doesn't mean that this algorithm is better than the other in <strong>all circumstances.</strong> It just means that based on the hyperparameter set configured for each algorithm and number of epochs performed, they resulted in that performance. 
 
 ![step functions results graph](./images/stepfunctions-graph-results.jpg)<br/><br/>
 
@@ -145,7 +145,7 @@ To make sure that you are configuring a set of hyperparameters that gives the mi
 ---
 ## What is next?
 
-Now, you can use the other half of the dataset named "dataset2.csv" to upload to the s3 "Inputs" folder. This will add more data and increase the amount of data used to train the models which shows how this process can be repeatitive based on the frequency of collected data that will be used to train the models.
+Now, you can use the other half of the dataset named "dataset2.csv" to upload to the s3 "Inputs" folder. This will add more data and increase the amount of data used to train the models which shows how this process can be repetitive based on the frequency of collected data that will be used to train the models.
 
 <br/><br/>![upload dataset2.csv](./images/upload-dataset2.jpg)<br/><br/>
 
