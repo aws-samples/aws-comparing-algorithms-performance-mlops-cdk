@@ -43,7 +43,7 @@ npm install
 cdk bootstrap
 cdk deploy
 ```
-<br/><br/>![cdk deploy](./images/cdk-deploy.png)<br/><br/>
+<br/><br/>![cdk deploy](./images/cdk-deploy.jpg)<br/><br/>
 
 After the solutions has been deployed to your account successfully, this can be confirmed from the output of the cdk deploy command returning the CloudFormation stack arn as below.
 
@@ -76,7 +76,7 @@ In order to download the dataset we need to run the below python script which ca
 ```
 python scripts/download_and_divide.py
 ```
-<br/><br/>![running python](./images/running-python.png)<br/><br/>
+<br/><br/>![running python](./images/running-python.jpg)<br/><br/>
 
 ---
 ## Starting the execution
@@ -121,15 +121,15 @@ The solution uses a completely serverless environment so you don’t have to wor
 <br/><br/>
 
 The overall flow of step functions execution can be viewed by refering to the to the step functions defintion graph below.<br/>
-![step functions defintion exported graph](./images/stepfunctions-graph.png)<br/><br/>
+![step functions defintion exported graph](./images/stepfunctions-graph.jpg)<br/><br/>
 
 P.S: Note that training, deployment of endpoints and performing live predictions. These steps are executed in parallel. Also once the prediction is performed, all deployed endpoints will be automatically deleted in order not to incur any additional charges.<br/><br/>
 
 6. You can now watch the step functions workflow progress by going to Step Functions [console](https://console.aws.amazon.com/states/home) and locate the state machine named  abaloneStepFunction<span style="color:red">*random-string*</span><br/><br/>
 
-![Stepfunctions console](./images/stepfunctions.png)<br/><br/>
+![Stepfunctions console](./images/stepfunctions.jpg)<br/><br/>
 
-![Stepfunctions Workflow console](./images/stepfunctions-execution.png)<br/><br/>
+![Stepfunctions Workflow console](./images/stepfunctions-execution.jpg)<br/><br/>
 
 ![Stepfunctions Workflow execution](./images/step-functions-executions.jpg)<br/><br/>
 
@@ -138,7 +138,7 @@ P.S: Note that training, deployment of endpoints and performing live predictions
 
 After waiting for the complete execution of step functions work flow, we can see the results as below, this doesn't mean that this algorithm is better than the other in <strong>all circumstances.</strong> It just means that based on the hyperparameters configured for each algorithm and number of epochs performed, they resulted in that performance. 
 
-![step functions results graph](./images/stepfunctions-graph-results.png)<br/><br/>
+![step functions results graph](./images/stepfunctions-graph-results.jpg)<br/><br/>
 
 To make sure that you are configuring a set of hyperparameters that gives the minimum loss and provide better version of the models, you would need to run a [hyperparameters tuning jobs](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-mkt-algo-tune.html) which will run many training jobs on your dataset using the algorithms and ranges of hyperparameters that you specify. This will help you allocate which set of hyperparameters is giving the best results<br/><br/>
 
@@ -147,11 +147,11 @@ To make sure that you are configuring a set of hyperparameters that gives the mi
 
 Now, you can use the other half of the dataset named "dataset2.csv" to upload to the s3 "Inputs" folder. This will add more data and increase the amount of data used to train the models which shows how this process can be repeatitive based on the frequency of collected data that will be used to train the models.
 
-<br/><br/>![upload dataset2.csv](./images/upload-dataset2.png)<br/><br/>
+<br/><br/>![upload dataset2.csv](./images/upload-dataset2.jpg)<br/><br/>
 
 Finally, you can use this comparison to determine which algorithm is best suited for your production environment. Then you can configure your step functions workflow to update the configuration of the production endpoint with the better performing algorithm.
 
-<br/><br/>![update prod flow](./images/update-prod-stepfunctions-graph.png)<br/><br/>
+<br/><br/>![update prod flow](./images/update-prod-stepfunctions-graph.jpg)<br/><br/>
 
 ---
 ## Cleanup
@@ -161,7 +161,7 @@ In order to delete all the infrastructure created, you can perform the below com
 ```
 cdk destroy
 ```
-![cdk destroy](./images/cdk-destroy.png)<br/><br/>
+![cdk destroy](./images/cdk-destroy.jpg)<br/><br/>
 
 ---
 ## Security
