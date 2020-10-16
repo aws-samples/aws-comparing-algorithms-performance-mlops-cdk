@@ -102,10 +102,10 @@ This architecture serves as an example of how you can build a MLOps pipeline tha
 The solution uses a completely serverless environment so you don’t have to worry about managing the infrastructure. It also makes sure that the deployed endpoints which will be used for predictions are deleted immediately after collecting the predictions results not to incur any additional costs.<br/><br/>
 
 
-![Solution Architecture](./images/solution-archtecture-shadow.jpg)<br/><br/>
+![Solution Architecture](./images/solution-architecture-shadow.jpg)<br/><br/>
+
 
 2. Once the dataset is uploaded to the Inputs folder using [s3 event notification](https://docs.aws.amazon.com/lambda/latest/dg/with-s3.html) it initiate the MLOps pipeline built using a Step Functions state machine.<br/><br/>
-
 
 
 3. The starting lambda will start by collecting the region corresponding [training images URIs](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html) for both Linear Learner and XGBoost algorithms which will be used in training both algorithms over the dataset. It will also get the [Amazon SageMaker Spark Container Image](https://github.com/aws/sagemaker-spark-container/blob/master/available_images.md) which will be used for running the SageMaker processing Job.<br/><br/>
