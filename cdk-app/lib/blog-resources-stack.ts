@@ -26,7 +26,7 @@ export class BlogResourcesStack extends cdk.Stack {
     const bucketFolderCreator= new lambda.Function(this,"folderCreatorFunction",{
       runtime: lambda.Runtime.PYTHON_3_8,
       functionName: "abalone-bucketFolderCreator" + '-' + cdk.Aws.ACCOUNT_ID + '-' + cdk.Aws.REGION,
-      code: lambda.Code.fromAsset('functions/bucketFolderCreator'),
+      code: lambda.Code.fromAsset('../functions/bucketFolderCreator'),
       handler: 'index.handler',
       environment:{
         bucket: blogBucket.bucketName
@@ -69,7 +69,7 @@ export class BlogResourcesStack extends cdk.Stack {
     const startLambda= new lambda.Function(this,"lambdaStartingFunction",{
       runtime: lambda.Runtime.PYTHON_3_8,
       functionName: "abalone-stateFirstFunction" + '-' + cdk.Aws.ACCOUNT_ID + '-' + cdk.Aws.REGION,
-      code: lambda.Code.fromAsset('functions/startLambda'),
+      code: lambda.Code.fromAsset('../functions/startLambda'),
       handler: 'index.handler',
       environment:{
         region: cdk.Aws.REGION
@@ -390,7 +390,7 @@ export class BlogResourcesStack extends cdk.Stack {
   const describeEndpointLambda = new lambda.Function(this,"describeEndpointLambda",{
     runtime: lambda.Runtime.PYTHON_3_8,
     functionName: "abalone-describeEndpointFunction" + '-' + cdk.Aws.ACCOUNT_ID + '-' + cdk.Aws.REGION,
-    code: lambda.Code.fromAsset('functions/describeEndpointLambda'),
+    code: lambda.Code.fromAsset('../functions/describeEndpointLambda'),
     handler: 'index.handler'
   })
 
@@ -422,7 +422,7 @@ export class BlogResourcesStack extends cdk.Stack {
   const predictionAccuracy = new lambda.Function(this,"predictionFunction",{
     runtime: lambda.Runtime.PYTHON_3_8,
     functionName: "abalone-predictionFunction" + '-' + cdk.Aws.ACCOUNT_ID + '-' + cdk.Aws.REGION,
-    code: lambda.Code.fromAsset('functions/predictionLambda'),
+    code: lambda.Code.fromAsset('../functions/predictionLambda'),
     handler: 'index.handler',
     environment:{
       region: cdk.Aws.REGION,
@@ -459,7 +459,7 @@ export class BlogResourcesStack extends cdk.Stack {
   const cleanupLambda = new lambda.Function(this,"cleanupFunction",{
     runtime: lambda.Runtime.PYTHON_3_8,
     functionName: "abalone-cleanupFunction" + '-' + cdk.Aws.ACCOUNT_ID + '-' + cdk.Aws.REGION,
-    code: lambda.Code.fromAsset('functions/cleanupLambda'),
+    code: lambda.Code.fromAsset('../functions/cleanupLambda'),
     handler: 'index.handler',
   })
 
@@ -543,7 +543,7 @@ export class BlogResourcesStack extends cdk.Stack {
   const comparisonLambda = new lambda.Function(this,"comparisonFunction",{
     runtime: lambda.Runtime.PYTHON_3_8,
     functionName: "abalone-comparisonFunction" + '-' + cdk.Aws.ACCOUNT_ID + '-' + cdk.Aws.REGION,
-    code: lambda.Code.fromAsset('functions/comparisonLambda'),
+    code: lambda.Code.fromAsset('../functions/comparisonLambda'),
     handler: 'index.handler',
   })
   
@@ -584,7 +584,7 @@ export class BlogResourcesStack extends cdk.Stack {
   const stateInvokeLambda= new lambda.Function(this,"InvokeStateMachine",{
         runtime: lambda.Runtime.PYTHON_3_8,
         functionName: "abalone-invokeStateMachine" + '-' + cdk.Aws.ACCOUNT_ID + '-' + cdk.Aws.REGION,
-        code: lambda.Code.fromAsset('functions/invokeStateLambda'),
+        code: lambda.Code.fromAsset('../functions/invokeStateLambda'),
         handler: 'index.handler',
         environment:{
           stateMachineArn: blogStepFunction.stateMachineArn,

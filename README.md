@@ -21,7 +21,8 @@ This is a project built using AWS Cloud Development Kit (AWS CDK). It shows how 
 To be able to provision the solution you would need the following:
 
 1.	[Install git](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/set-up-git)
-2.	[Install CDK](https://docs.aws.amazon.com/cdk/latest/guide/getting_started.html#getting_started_prerequisites)
+2.  [Install python](https://www.python.org/downloads/)
+3.	[Install CDK](https://docs.aws.amazon.com/cdk/latest/guide/getting_started.html#getting_started_prerequisites)
 
 
 ---
@@ -43,7 +44,7 @@ git clone https://github.com/aws-samples/aws-comparing-algorithms-performance-ml
 git clone git@github.com:aws-samples/aws-comparing-algorithms-performance-mlops-cdk.git
 
 ## installation and deploy
-cd aws-comparing-algorithms-performance-mlops-cdk/
+cd aws-comparing-algorithms-performance-mlops-cdk/cdk-app/
 npm install
 cdk bootstrap
 cdk deploy
@@ -76,7 +77,7 @@ Shell.weight      <feature_number>: float  0.31 0.08 0.21 0.155 0.044 0.11 ...
 
 The above features starting from sex to Shell.weight are physical measurements that can be measured using the correct tools, so we improve the complexity of having to examine the abalone under microscopes to understand it's age.<br/><br/>
 
-In order to download the dataset we need to run the below python script which can be found in the "scripts" folder named "download_and_divide.py" which will download the original dataset and divide it into two datasets named "dataset1.csv" and "dataset2.csv". We will be using those two datasets to show how the solution can continuously include more data and use the added data for the training of the models.<br/><br/>
+In order to download the dataset we need to run the below python script which can be found in the "scripts" folder. The script name is "download_and_divide.py" which will first check if the required packages are found in your environment and install them if required then it will download the original dataset and divide it into two datasets named "dataset1.csv" and "dataset2.csv". We will be using those two datasets to show how the solution can continuously include more data and use the added data for the training of the models.<br/><br/>
 
 ```
 python scripts/download_and_divide.py

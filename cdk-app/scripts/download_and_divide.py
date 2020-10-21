@@ -1,5 +1,13 @@
-import requests
+import subprocess
 import sys
+
+#check if module requests is present and install if it is not
+try:
+    import requests
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", 'requests'])
+    import requests
+
 
 # Load the dataset
 source_data = 'abalone_dataset.csv'
