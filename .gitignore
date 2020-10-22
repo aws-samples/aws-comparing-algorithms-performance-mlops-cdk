@@ -1,18 +1,18 @@
-*.js
-!jest.config.js
-*.d.ts
+cdk-app/*.js
+!cdk-app/jest.config.js
+cdk-app/*.d.ts
 cdk-app/node_modules
 
 # CDK asset staging directory
-.cdk.staging
-cdk.out
+cdk-app/.cdk.staging
+cdk-app/cdk.out
 
 # Parcel build directories
-.cache
-.build
+*/.cache
+*/.build
 
 #git related files
-.gitallowed
+*/.gitallowed
 
 #hidden files
-.DS_Store
+*/.DS_Store
