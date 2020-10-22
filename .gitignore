@@ -12,7 +12,7 @@ cdk-app/cdk.out
 */.build
 
 #git related files
-*/.gitallowed
+.gitallowed
 
 #hidden files
-*/.DS_Store
+.DS_Store
