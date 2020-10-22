@@ -2,6 +2,7 @@
   "name": "aws-comparing-algorithms-performance-mlops-cdk",
   "version": "0.1.0",
   "license": "SEE LICENSE IN LICENSE FILE",
+  "description": "Comparing Machine Learning Algorithm Performance using Machine Learning Operations (MLOps) and the AWS Cloud Development Kit (CDK)",
   "bin": {
     "blog-resources": "bin/blog-resources.js"
   },
@@ -14,7 +15,7 @@
   "devDependencies": {
     "@aws-cdk/assert": "1.69.0",
     "@types/jest": "^26.0.15",
-    "@types/node": "14.14.0",
+    "@types/node": "14.14.2",
     "aws-cdk": "^1.69.0",
     "jest": "^26.6.0",
     "ts-jest": "^26.4.1",
