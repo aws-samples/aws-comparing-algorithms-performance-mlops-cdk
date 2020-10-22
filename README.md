@@ -77,7 +77,7 @@ Shell.weight      <feature_number>: float  0.31 0.08 0.21 0.155 0.044 0.11 ...
 
 The above features starting from sex to Shell.weight are physical measurements that can be measured using the correct tools, so we improve the complexity of having to examine the abalone under microscopes to understand it's age.<br/><br/>
 
-In order to download the dataset we need to run the below python script which can be found in the "scripts" folder. The script name is "download_and_divide.py" which will first check if the required packages are found in your environment and install them if required then it will download the original dataset and divide it into two datasets named "dataset1.csv" and "dataset2.csv". We will be using those two datasets to show how the solution can continuously include more data and use the added data for the training of the models.<br/><br/>
+In order to download the dataset we need to run the below python script which can be found in the "scripts" folder with the name "download_and_divide.py". The script will first check if the required packages are found in your environment and install them if required then it will download the original dataset and divide it into two datasets named "dataset1.csv" and "dataset2.csv". We will be using those two datasets to show how the solution can continuously include more data and use the added data for the training of the models.<br/><br/>
 
 ```
 python scripts/download_and_divide.py
