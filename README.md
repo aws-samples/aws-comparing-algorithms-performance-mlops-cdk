@@ -21,7 +21,7 @@ This is a project built using AWS Cloud Development Kit (AWS CDK). It shows how 
 To be able to provision the solution you would need the following:
 
 1.	[Install git](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/set-up-git)
-2.  [Install python](https://www.python.org/downloads/)
+2.  [Install python 3.x](https://www.python.org/downloads/)
 3.	[Install CDK](https://docs.aws.amazon.com/cdk/latest/guide/getting_started.html#getting_started_prerequisites)
 
 
@@ -80,7 +80,7 @@ The above features starting from sex to Shell.weight are physical measurements t
 In order to download the dataset we need to run the below python script which can be found in the "scripts" folder with the name "download_and_divide.py". The script will first check if the required packages are found in your environment and install them if required then it will download the original dataset and divide it into two datasets named "dataset1.csv" and "dataset2.csv". We will be using those two datasets to show how the solution can continuously include more data and use the added data for the training of the models.<br/><br/>
 
 ```
-python scripts/download_and_divide.py
+python3 scripts/download_and_divide.py
 ```
 <br/><br/>![running python](./images/running-python.jpg)<br/><br/>
 
