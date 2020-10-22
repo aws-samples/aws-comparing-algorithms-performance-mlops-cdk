@@ -8,11 +8,11 @@ cdk-app/.cdk.staging
 cdk-app/cdk.out
 
 # Parcel build directories
-*/.cache
-*/.build
+.cache
+.build
 
 #git related files
-*/.gitallowed
+.gitallowed
 
 #hidden files
-*/.DS_Store
+.DS_Store
