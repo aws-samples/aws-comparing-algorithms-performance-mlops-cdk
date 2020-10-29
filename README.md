@@ -1,4 +1,4 @@
-# Comparing Machine Learning Algorithm Performance using Machine Learning Operations (MLOps) and the AWS Cloud Development Kit (CDK)
+# Comparing Machine Learning Algorithms' Performance using Machine Learning Operations (MLOps) and the AWS Cloud Development Kit (CDK)
 
 This is a project built using AWS Cloud Development Kit (AWS CDK). It shows how to fully automate the complete life cycle of how to perform comparison between two machine learning algorithms. For this project we are going to solve a regression use case to determine the age of the Abalone using both "XGboost" and "Linear learner" Algorithms. The main goal here is to show the process and how to automate data transformation, training, creation of models and endpoint configurations and finally how to automate performing the prediction against the deployed endpoints to determine which model is having a better prediction results. This will happen in a complete serverless environment using below aws services:
 
