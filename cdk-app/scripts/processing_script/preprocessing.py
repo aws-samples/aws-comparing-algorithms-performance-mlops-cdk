@@ -27,7 +27,7 @@ def main():
     # listing all old files if any to delete them and create a new dataset
     response = client.list_objects_v2(Bucket = args.s3_output_bucket)
     file_keys = [ obj['Key'] for obj in response['Contents'] if (obj['Key'].find('Xgboost')!=-1 or obj['Key'].find('Linear')!=-1 or obj['Key'].find('folder')!=-1)]
-    #print("keys found are: " + str(file_keys))
+
     #delete any old files before running the job
     if len(file_keys)!=0:
         for key in file_keys:
@@ -69,7 +69,7 @@ def main():
     
 
 
-    #lambda function to split the <feature_number>:<feature_value> format into double type
+    #lambda function to split the <feature_number>:<feature_value> format and remove the <feature_number>
     chop_value = udf(lambda x: x.split(":")[1], StringType())
 
 
@@ -96,7 +96,7 @@ def main():
     # Delete any *_$folder$ files created
     response = client.list_objects_v2(Bucket = args.s3_output_bucket)
     file_keys = [ obj['Key'] for obj in response['Contents'] if (obj['Key'].find('folder')!=-1)]
-    #print("keys found are: " + str(file_keys))
+
     #delete any old files before running the job
     if len(file_keys)!=0:
         for key in file_keys:
