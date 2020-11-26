@@ -87,9 +87,9 @@ python3 scripts/download_and_divide.py
 ---
 ## Starting the execution
 
-1. Now that we have the infrastructure setup and datasets ready, let's start the execution and explore what the solution is performing.
+Now that we have the infrastructure setup and datasets ready, let's start the execution and explore what the solution is performing.
 
-We start by uploading the the first half of the data set named "dataset1.csv" to the bucket named "abalone-blog-*< ACCOUNT_ID>-\<REGION>*" to "/*Inputs*" folder.
+1. We start by uploading the the first half of the data set named "dataset1.csv" to the bucket named "abalone-blog-*< ACCOUNT_ID>-\<REGION>*" to "/*Inputs*" folder.
 
 ![Inputs Folder](./images/upload-dataset-Inputs-folder.jpg)
 
@@ -105,26 +105,29 @@ The solution uses a completely serverless environment so you don’t have to wor
 
 ![Solution Architecture](./images/solution-architecture-shadow.jpg)<br/><br/>
 
+1.	The dataset is uploaded to the Amazon S3 cloud storage under the /Inputs directory (prefix).
 
 2. Once the dataset is uploaded to the Inputs folder using [s3 event notification](https://docs.aws.amazon.com/lambda/latest/dg/with-s3.html) it initiate the MLOps pipeline built using a Step Functions state machine.<br/><br/>
 
+3.	The Lambda function then will initiate the MLOps pipeline built using a Step Functions state machine.
 
-3. The starting lambda will start by collecting the region corresponding [training images URIs](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html) for both Linear Learner and XGBoost algorithms which will be used in training both algorithms over the dataset. It will also get the [Amazon SageMaker Spark Container Image](https://github.com/aws/sagemaker-spark-container/blob/master/available_images.md) which will be used for running the SageMaker processing Job.<br/><br/>
+4. The starting lambda will start by collecting the region corresponding [training images URIs](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html) for both Linear Learner and XGBoost algorithms which will be used in training both algorithms over the dataset. It will also get the [Amazon SageMaker Spark Container Image](https://github.com/aws/sagemaker-spark-container/blob/master/available_images.md) which will be used for running the SageMaker processing Job.<br/><br/>
 
-4. The dataset is in libsvm format which is accepted by the XGBoost algorithm as per the [Input/Output Interface for the XGBoost Algorithm](https://docs.aws.amazon.com/sagemaker/latest/dg/xgboost.html#InputOutput-XGBoost). However, this is not supported by the Linear Learner Algorithm as per [Input/Output interface for the linear learner algorithm](https://docs.aws.amazon.com/sagemaker/latest/dg/linear-learner.html#ll-input_output). So we need to run a processing job using [Amazon SageMaker Data Processing with Apache Spark](https://docs.aws.amazon.com/sagemaker/latest/dg/use-spark-processing-container.html). The processing job will transform the data from libsvm to csv and will divide the dataset into train, validation and test datasets. The output of the processing job will be stored under "/*Xgboost*" and "/*Linear*" directories (prefixes).<br/><br/>
+5. The dataset is in libsvm format which is accepted by the XGBoost algorithm as per the [Input/Output Interface for the XGBoost Algorithm](https://docs.aws.amazon.com/sagemaker/latest/dg/xgboost.html#InputOutput-XGBoost). However, this is not supported by the Linear Learner Algorithm as per [Input/Output interface for the linear learner algorithm](https://docs.aws.amazon.com/sagemaker/latest/dg/linear-learner.html#ll-input_output). So we need to run a processing job using [Amazon SageMaker Data Processing with Apache Spark](https://docs.aws.amazon.com/sagemaker/latest/dg/use-spark-processing-container.html). The processing job will transform the data from libsvm to csv and will divide the dataset into train, validation and test datasets. The output of the processing job will be stored under "/*Xgboost*" and "/*Linear*" directories (prefixes).<br/><br/>
 
 ![datasets folder](./images/dataset-directories.jpg)<br/><br/>
 
 ![train validation test](./images/train-validation-test.jpg)<br/><br/>
 
-5. The workflow of Step Functions will perform the following steps in parallel
+6. The workflow of Step Functions will perform the following steps in parallel
     > A: Train both algorithms.<br/>
     > B: Create models out of trained algorithms.<br/>
     > C: Create endpoints configurations and deploy predictions endpoints for both models.<br/>
     > D: Invoke lambda function to describe the deployed endpoints and wait for the endpoints to become available.
     > E: Invoke lambda function to perform 3 live predictions using boto3 and the “test” sample taken from the dataset to calculate the average accuracy of each model.<br/>
     > F: Invoke lambda function to delete deployed endpoints not to incur any additional charges.<br/>
-    > G: Invoke Lambda function to determine which model is having better accuracy in predicting the values.
+
+7. Finally, a Lambda function will be invoked to determine which model is having better accuracy in predicting the values.
 <br/>
 
 The overall flow of step functions execution can be viewed by referring to the to the step functions definition graph below.<br/>
