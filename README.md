@@ -123,7 +123,7 @@ The solution uses a completely serverless environment so you don’t have to wor
     > A: Train both algorithms.<br/>
     > B: Create models out of trained algorithms.<br/>
     > C: Create endpoints configurations and deploy predictions endpoints for both models.<br/>
-    > D: Invoke lambda function to describe the deployed endpoints and wait for the endpoints to become available.
+    > D: Invoke lambda function to describe the deployed endpoints and wait for the endpoints to become available.<br/>
     > E: Invoke lambda function to perform 3 live predictions using boto3 and the “test” sample taken from the dataset to calculate the average accuracy of each model.<br/>
     > F: Invoke lambda function to delete deployed endpoints not to incur any additional charges.<br/>
 

@@ -1,3 +1,4 @@
+from __future__ import print_function
 import json
 import os
 import boto3
@@ -10,23 +11,27 @@ sagemakerclient = boto3.client('sagemaker')
 def handler(event, context):
   if "xgboostresult" in event["training"].keys():
       try:
+        endpoint_name=event["input"]["xgb_endpoint_name"]
         sagemakerclient.delete_endpoint(
-            EndpointName=event["input"]["xgb_endpoint_name"]
+            EndpointName=endpoint_name
         )
+        print(f"deleted endpoint {endpoint_name} successfully!")
       except Exception as e:
           print(e)
       return {
-          'messgae': 'Deleted xgboost endpoint successfully!'
+          'message': 'Deleted xgboost endpoint successfully!'
       }
   elif "llresult" in event["training"].keys():
       try:
+        endpoint_name=event["input"]["ll_endpoint_name"]
         sagemakerclient.delete_endpoint(
-            EndpointName=event["input"]["ll_endpoint_name"]
+            EndpointName=endpoint_name
         )
+        print(f"deleted endpoint {endpoint_name} successfully!")
       except Exception as e:
           print(e)
       return {
-          'messgae': 'Deleted Linear endpoint successfully!'
+          'message': 'Deleted Linear endpoint successfully!'
       }
   else:
       return {
