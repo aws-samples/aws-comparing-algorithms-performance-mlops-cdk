@@ -135,7 +135,7 @@ The overall flow of step functions execution can be viewed by referring to the t
 
 P.S: Note that training, deployment of endpoints and performing live predictions. These steps are executed in parallel. Also once the prediction is performed, all deployed endpoints will be automatically deleted in order not to incur any additional charges.<br/><br/>
 
-6. You can now watch the step functions workflow progress by going to Step Functions [console](https://console.aws.amazon.com/states/home) and locate the state machine named  abaloneStepFunction<span style="color:red">*<random-string>*</span><br/><br/>
+You can now watch the step functions workflow progress by going to Step Functions [console](https://console.aws.amazon.com/states/home) and locate the state machine named  abaloneStepFunction<span style="color:red">*<random-string>*</span><br/><br/>
 
 ![Stepfunctions console](./images/stepfunctions.jpg)<br/><br/>
 
